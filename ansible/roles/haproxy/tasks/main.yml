@@ -1,0 +1,17 @@
+---
+
+- name: Install haproxy
+  apt: name=haproxy state=present
+
+- name: Update HAProxy config
+  template: src=haproxy.cfg dest=/etc/haproxy/haproxy.cfg
+
+- name: Enable init script
+  replace: dest='/etc/default/haproxy'
+         regexp='ENABLED=0'
+         replace='ENABLED=1'
+
+  handlers:
+- name: Restart haproxy
+  service: name=haproxy state=restarted
+

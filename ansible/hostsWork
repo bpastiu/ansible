@@ -1,0 +1,10 @@
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+
+[webservers]
+172.16.73.207
+172.16.73.80
+
+[load_balancer]
+172.16.73.187
+

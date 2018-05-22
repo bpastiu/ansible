@@ -1,0 +1,10 @@
+---
+- hosts: webservers
+  become: true
+  roles:
+    - webserver
+    - database
+- hosts: load_balancer
+  become: true
+  roles:
+    - haproxy	
